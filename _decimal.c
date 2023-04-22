@@ -7,30 +7,37 @@
   */
 int _decimal(va_list zab)
 {
-	int x = va_arg(zab, int);
-	int num1, dig, y = 1, len = 0;
+	int n = va_arg(zab, int);
+	int last = n % 10;
+	int i = 1;
+	int exp;
 
-	if (x < 0)
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	if (n == INT_MIN)
 	{
 		_putchar('-');
-		x *= -1;
-		len++;
+		_putchar('2');
+		n = 147483648;
+		i += 2;
 	}
-
-	for (num1 = x; num1 > 0; num1 /= 10)
+	else if (n < 0)
 	{
-		y = y * 10;
+		_putchar('-');
+		n = -n;
+		i++;
 	}
-	y = y / 10;
-
-	for (; y >= 1; y /= 10)
+	for (exp = 1; exp <= n / 10; exp *= 10)
 	{
-		dig = x / y;
-		_putchar(dig + '0');
-		x = x % y;
-		len++;
+		for (; exp >= 1; exp /= 10)
+		{
+			_putchar((n / exp) % 10 + '0');
+			i++;
+		}
 	}
-	len++;
-
-	return (len);
+	_putchar(last + '0');
+	return (i);
 }
