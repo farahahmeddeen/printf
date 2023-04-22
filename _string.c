@@ -1,7 +1,10 @@
 #include "main.h"
 
 /**
+  * _string - function that print string
+  * @zab: argument parameter
   *
+  * Return: length of string
   */
 int _string(va_list zab)
 {
