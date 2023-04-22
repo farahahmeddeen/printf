@@ -9,7 +9,8 @@ int _printf(const char *format, ...)
 	conversion_array fa[] = {
 		{"%c", _char},
 		{"%s", _string},
-		{"%%", _percent}
+		{"%%", _percent},
+		{"%d", _int}
 	};
 
 	va_list zab;
@@ -23,7 +24,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[f] == '%')
 		{
-			for (z = 0; z < 3; z++)
+			for (z = 0; z < 4; z++)
 			{
 				if (fa[z].h[0] == format[f] && fa[z].h[1] == format[f + 1])
 				{
