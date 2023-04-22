@@ -8,12 +8,12 @@ int _strleng(const char *str);
   *
   * Return: length of string
   */
-int _string(va_list zab)
+int _string(va_list st)
 {
 	char *s;
 	int i, len;
 
-	s = va_arg(zab, char *);
+	s = va_arg(st, char *);
 	if (s == NULL)
 	{
 		s = "(null)";

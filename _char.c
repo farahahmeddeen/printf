@@ -4,11 +4,11 @@
  * @zab: argument passed
  * Return: 1 always
  */
-int _char(va_list zab)
+int _char(va_list st)
 {
 	char y;
 
-	y = va_arg(zab, int);
+	y = va_arg(st, int);
 	_putchar(y);
 	return (1);
 }
