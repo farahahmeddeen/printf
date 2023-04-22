@@ -7,7 +7,8 @@
 int _printf(const char *format, ...)
 {
 	conversion_array fa[] = {
-		{"%c", _char}
+		{"%c", _char},
+		{"%s%", _string}
 	};
 
 	va_list zab;
@@ -19,7 +20,7 @@ int _printf(const char *format, ...)
 	f = 0;
 	while (format[f] != '\0')
 	{
-		for (z = 0; z < 1; z++)
+		for (z = 0; z < 2; z++)
 		{
 			if (fa[z].h[0] == format[f] && fa[z].h[1] == format[f + 1])
 			{
