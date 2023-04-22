@@ -11,6 +11,9 @@ int _printf(const char *format, ...)
 		{"%s", _string},
 		{"%%", _percent}
 	};
+	UNUSED(_string);
+	UNUSED(_percent);
+
 	va_list zab;
 	int f, z, l;
 
