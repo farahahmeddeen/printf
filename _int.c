@@ -24,12 +24,11 @@ int _int(va_list zab)
 	}
 	if (num > 0)
 	{
-		while (num / 10 != 0)
-		{
-			exp = exp * 10;
-			num = num / 10;
-		}
+		for (exp = 1; num / exp  >= 10; exp *= 10)
+			;
+
 		num = n;
+
 		for (; exp > 0; exp /= 10)
 		{
 			digit = num / exp;
