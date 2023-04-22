@@ -17,7 +17,7 @@ int _string(va_list zab)
 	if (ptr == NULL)
 	{
 		ptr = "NULL";
-		z = strlen(ptr)
+		z = _strlen(ptr)
 		f = 0;
 		while (f < z)
 		{
@@ -28,7 +28,7 @@ int _string(va_list zab)
 	}
 	else
 	{
-		z = strlen(ptr);
+		z = _strlen(ptr);
 		f = 0;
 		while (f < z)
 		{
@@ -39,4 +39,34 @@ int _string(va_list zab)
 	}
 
 	return (0);
+}
+
+/**
+  * _strlen - string length
+  * @str: parameter
+  * Return: string length
+  */
+int _strlen(char *str)
+{
+	int len;
+
+	for (len = 0; str[len] != '\0'; len++)
+		;
+
+	return (len);
+}
+
+/**
+  * _strlen - Entry point
+  * @str: string parameter
+  * Return: length
+  */
+int _strlen(const char *str)
+{
+	int len;
+
+	for (len = 0; str[len] != '\0'; len++)
+		;
+
+	return (len);
 }

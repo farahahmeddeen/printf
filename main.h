@@ -6,7 +6,6 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
 
 /**
   * struct format - match specifiers
@@ -19,6 +18,8 @@ typedef struct format
 	int (*func)();
 } conversion_array;
 
+int _strlen(char *str);
+int _strlen(const char *str);
 int _char(va_list zab);
 int _string(va_list zab);
 int _percent(void);
