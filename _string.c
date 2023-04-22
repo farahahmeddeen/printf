@@ -17,8 +17,7 @@ int _string(va_list zab)
 	if (ptr == NULL)
 	{
 		ptr = "NULL";
-		for (z = 0; ptr[z] != '\0'; z++)
-			;
+		z = strlen(ptr)
 		f = 0;
 		while (f < z)
 		{
@@ -29,8 +28,7 @@ int _string(va_list zab)
 	}
 	else
 	{
-		for (z = 0; ptr[z] != '\0'; z++)
-			;
+		z = strlen(ptr);
 		f = 0;
 		while (f < z)
 		{
