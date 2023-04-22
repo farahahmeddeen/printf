@@ -7,7 +7,7 @@
   */
 int _decimal(va_list zab)
 {
-	int n = va_arg(args, int);
+	int n = va_arg(zab, int);
 	int num, last = n % 10, digit;
 	int  i = 1;
 	int exp = 1;
