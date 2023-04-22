@@ -17,30 +17,17 @@ int _string(va_list zab)
 	ptr = va_arg(zab, char *);
 
 	if (ptr == NULL)
-	{
 		ptr = "(null)";
-		z = _strlen(ptr);
-		f = 0;
-		while (f < z)
-		{
-			_putchar(ptr[f]);
-			f++;
-		}
-		return (z);
-	}
-	else
+
+	z = _strlen(ptr);
+	f = 0;
+	while (f < z)
 	{
-		z = _strlen(ptr);
-		f = 0;
-		while (f < z)
-		{
-			_putchar(ptr[f]);
-			f++;
-		}
-		return (z);
+		_putchar(ptr[f]);
+		f++;
 	}
 
-	return (0);
+	return (z);
 }
 
 /**
