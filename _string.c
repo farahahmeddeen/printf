@@ -5,15 +5,14 @@ int _strleng(const char *str);
 /**
   * _string - function that print string
   * @zab: argument parameter
-  *
   * Return: length of string
   */
-int _string(va_list st)
+int _string(va_list zab)
 {
 	char *s;
 	int i, len;
 
-	s = va_arg(st, char *);
+	s = va_arg(zab, char *);
 	if (s == NULL)
 	{
 		s = "(null)";
