@@ -7,30 +7,39 @@
   */
 int _int(va_list zab)
 {
-	int x = va_arg(zab, int);
-	int num1, dig, y = 1, len = 0;
+	int n = va_arg(zab, int);
+	int num, last = n % 10, digit, exp = 1;
+	int  i = 1;
 
-	if (x < 0)
+	n = n / 10;
+	num = n;
+
+	if (last < 0)
 	{
 		_putchar('-');
-		x *= -1;
-		len++;
+		num = -num;
+		n = -n;
+		last = -last;
+		i++;
 	}
-
-	for (num1 = x; num1 > 0; num1 /= 10)
+	if (num > 0)
 	{
-		y = y * 10;
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			exp = exp / 10;
+			i++;
+		}
 	}
-	y = y / 10;
+	_putchar(last + '0');
 
-	for (; y >= 1; y /= 10)
-	{
-		dig = x / y;
-		_putchar(dig + '0');
-		x = x % y;
-		len++;
-	}
-	len++;
-
-	return (len);
+	return (i);
 }
