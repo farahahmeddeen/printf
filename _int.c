@@ -32,7 +32,7 @@ int _int(va_list zab)
 		for (; k > 0; k /= 10)
 		{
 			num = fa / k;
-			_putchar(k + '0');
+			_putchar(num + '0');
 			fa = fa - (num * k);
 			len++;
 		}
