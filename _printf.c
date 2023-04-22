@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * _printf - function to print
- * @format: what to print
- * Return: the string to be printed
+ * _printf - prints formatted output to stdout
+ * @format: format string containing conversion specifiers
+ * Return: number of characters printed
  */
 int _printf(const char *format, ...)
 {
