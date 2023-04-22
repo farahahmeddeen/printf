@@ -1,34 +1,44 @@
 #include "main.h"
 
 /**
-  * _int - print integers
-  * @zab: variable argument list
-  * Return: number of digits printed
-  */
+ * _int - prints integer
+ * @zab: argument to print
+ * Return: number of characters printed
+ */
 int _int(va_list zab)
 {
-	int num = va_arg(zab, int);
-	int digit, exp = 1, i = 0;
+	int n = va_arg(zab, int);
+	int num, last = n % 10, digit, exp = 1;
+	int i = 1;
 
-	if (num < 0)
+	n = n / 10;
+	num = n;
+
+	if (last < 0)
 	{
 		_putchar('-');
 		num = -num;
+		n = -n;
+		last = -last;
 		i++;
 	}
-
-	while (num / exp > 9)
-		exp *= 10;
-
-	while (exp > 0)
+	if (num > 0)
 	{
-		digit = num / exp;
-		_putchar(digit + '0');
-		num %= exp;
-		exp /= 10;
-		i++;
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		for (; exp > 0; exp /= 10)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			i++;
+		}
 	}
+	_putchar(last + '0');
 
 	return (i);
 }
-
