@@ -18,7 +18,7 @@ int _string(va_list zab)
 
 	if (ptr == NULL)
 	{
-		ptr = "NULL";
+		ptr = "(null)";
 		z = _strlen(ptr);
 		f = 0;
 		while (f < z)
