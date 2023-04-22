@@ -18,6 +18,7 @@ typedef struct format
 	int (*func)();
 } conversion_array;
 
+int _int(va_list zab);
 int _strlen(char *str);
 int _strleng(const char *str);
 int _char(va_list zab);
