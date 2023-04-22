@@ -21,18 +21,24 @@ int _printf(const char *format, ...)
 	f = 0;
 	while (format[f] != '\0')
 	{
-		for (z = 0; z < 3; z++)
+		if (format[f] == '%')
 		{
-			if (fa[z].h[0] == format[f] && fa[z].h[1] == format[f + 1])
+			for (z = 0; z < 3; z++)
 			{
-				l += fa[z].func(zab);
-				f = f + 2;
-				break;
+				if (fa[z].h[0] == format[f] && fa[z].h[1] == format[f + 1])
+				{
+					l += fa[z].func(zab);
+					f = f + 2;
+					break;
+				}
 			}
 		}
-		_putchar(format[f]);
-		l++;
-		f++;
+		else
+		{
+			_putchar(format[f]);
+			l++;
+			f++;
+		}
 	}
 	va_end(zab);
 	return (l);
