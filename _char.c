@@ -1,14 +1,14 @@
 #include "main.h"
 /**
  * _char - function to print a char
- * @zab: argument passed
+ * @args: argument passed
  * Return: 1 always
  */
-int _char(va_list st)
+int _char(va_list args)
 {
 	char y;
 
-	y = va_arg(st, int);
+	y = va_arg(args, int);
 	_putchar(y);
 	return (1);
 }
