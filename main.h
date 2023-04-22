@@ -18,8 +18,8 @@ typedef struct format
 	int (*func)();
 } conversion_array;
 
-int _char(va_list zab);
-int _string(va_list zab);
+int _char(va_list zw);
+int _string(va_list zw);
 int _percent(void);
 int _printf(const char *format, ...);
 int _putchar(char c);

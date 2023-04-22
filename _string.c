@@ -6,13 +6,13 @@
   *
   * Return: length of string
   */
-int _string(va_list zab)
+int _string(va_list zw)
 {
 	int f;
 	char *ptr;
 	int z;
 
-	ptr = va_arg(zab, char *);
+	ptr = va_arg(zw, char *);
 
 	if (ptr == NULL)
 	{
