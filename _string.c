@@ -9,10 +9,12 @@ int _string(va_list zab)
 	char *ptr;
 	int z;
 
-	if (ptr == NULL)
-		return (NULL);
+	ptr = va_arg(zab, char *);
 
-	for (z = 0; ptr[i] != '\0'; z++)
+	if (ptr == NULL)
+		ptr = "NULL";
+
+	for (z = 0; ptr[z] != '\0'; z++)
 		;
 
 	f = 0;
