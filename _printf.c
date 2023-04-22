@@ -8,7 +8,7 @@ int _printf(const char *format, ...)
 {
 	conversion_array fa[] = {
 		{"%c", _char},
-		{"%s%", _string},
+		{"%s", _string},
 		{"%%", _percent}
 	};
 
