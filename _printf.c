@@ -21,6 +21,7 @@ int _printf(const char *format, ...)
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	f = 0;
+Here:
 	while (format[f] != '\0')
 	{
 		if (format[f] == '%')
@@ -31,7 +32,7 @@ int _printf(const char *format, ...)
 				{
 					l += fa[z].func(zab);
 					f = f + 2;
-					break;
+					goto Here;
 				}
 			}
 		}
