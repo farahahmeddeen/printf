@@ -10,24 +10,25 @@ int _strleng(const char *str);
   */
 int _string(va_list zab)
 {
-	int f;
-	char *ptr;
-	int z;
+	char *s;
+	int i, len;
 
-	ptr = va_arg(zab, char *);
-
-	if (ptr == NULL)
-		ptr = "(null)";
-
-	z = _strlen(ptr);
-	f = 0;
-	while (f < z)
+	s = va_arg(zab, char *);
+	if (s == NULL)
 	{
-		_putchar(ptr[f]);
-		f++;
+		s = "(null)";
+		len = _strlen(s);
+		for (i = 0; i < len; i++)
+			_putchar(s[i]);
+		return (len);
 	}
-
-	return (z);
+	else
+	{
+		len = _strlen(s);
+		for (i = 0; i < len; i++)
+			_putchar(s[i]);
+		return (len);
+	}
 }
 
 /**
