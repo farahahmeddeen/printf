@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
-  * _print_int - print integers
-  * @args: variable argument list
+  * _int - print integers
+  * @zab: variable argument list
   * Return: number of digits printed
   */
 int _int(va_list zab)
