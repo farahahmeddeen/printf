@@ -19,7 +19,7 @@ typedef struct format
 } conversion_array;
 
 int _strlen(char *str);
-int _strlen(const char *str);
+int _strleng(const char *str);
 int _char(va_list zab);
 int _string(va_list zab);
 int _percent(void);

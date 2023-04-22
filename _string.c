@@ -1,5 +1,7 @@
 #include "main.h"
 
+int _strlen(char *str);
+int _strleng(const char *str);
 /**
   * _string - function that print string
   * @zab: argument parameter
@@ -17,7 +19,7 @@ int _string(va_list zab)
 	if (ptr == NULL)
 	{
 		ptr = "NULL";
-		z = _strlen(ptr)
+		z = _strlen(ptr);
 		f = 0;
 		while (f < z)
 		{
@@ -57,11 +59,11 @@ int _strlen(char *str)
 }
 
 /**
-  * _strlen - Entry point
+  * _strleng - Entry point
   * @str: string parameter
   * Return: length
   */
-int _strlen(const char *str)
+int _strleng(const char *str)
 {
 	int len;
 
