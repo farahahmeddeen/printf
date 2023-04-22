@@ -8,7 +8,7 @@
 int _int(va_list zab)
 {
 	int x = va_arg(zab, int);
-	int fa, lastdigit = len % 10, num, k = 1;
+	int fa, lastdigit = x % 10, num, k = 1;
 	int len = 1;
 
 	x = x / 10;
