@@ -1,46 +1,43 @@
 #include "main.h"
 
 /**
-  * _decimal - print decimal
-  * @zab: parameter
-  * Return: length
-  */
+ * _decimal - prints integer
+ * @zab: argument to print
+ * Return: number of characters printed
+ */
 int _decimal(va_list zab)
 {
-	int n = va_arg(zab, int);
-	int num, last = n % 10, digit;
-	int  i = 1;
-	int exp = 1;
+	int x = va_arg(zab, int);
+	int fa, lastdigit = x % 10, num, k = 1;
+	int len = 1;
 
-	n = n / 10;
-	num = n;
+	x = x / 10;
+	fa = x;
 
-	if (last < 0)
+	if (lastdigit < 0)
 	{
 		_putchar('-');
-		num = -num;
-		n = -n;
-		last = -last;
-		i++;
+		fa = -fa;
+		x = -x;
+		lastdigit = -lastdigit;
+		len++;
 	}
-	if (num > 0)
+	if (fa > 0)
 	{
-		while (num / 10 != 0)
+		for (k = 1; fa / k  >= 10; k *= 10)
+			;
+
+		fa = x;
+
+		for (; k > 0; k /= 10)
 		{
-			exp = exp * 10;
-			num = num / 10;
-		}
-		num = n;
-		while (exp > 0)
-		{
-			digit = num / exp;
-			_putchar(digit + '0');
-			num = num - (digit * exp);
-			exp = exp / 10;
-			i++;
+			num = fa / k;
+			_putchar(num + '0');
+			fa = fa - (num * k);
+			len++;
 		}
 	}
-	_putchar(last + '0');
+	_putchar(lastdigit + '0');
 
-	return (i);
+	return (len);
 }
