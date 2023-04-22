@@ -7,7 +7,7 @@
 int _printf(const char *format, ...)
 {
 	conversion_array fa[] = {
-		{"%c", _char
+		{"%c", _char}
 	};
 
 	va_list zab;
