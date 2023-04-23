@@ -6,11 +6,11 @@
  *
  * Return: lenght of the string
  */
-int printf_rot13(va_list args)
+int _rot13(va_list zab)
 {
 	int i, j, counter = 0;
 	int k = 0;
-	char *s = va_arg(args, char*);
+	char *s = va_arg(zab, char*);
 	char alpha[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
 	char beta[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
 
