@@ -8,25 +8,29 @@
  */
 int _binary(va_list zab)
 {
-	unsigned int x = vs_srg(zab, unsigned int);
-	int bits = sizeof(x) * 8;
-	int p = 0;
-	int l = 1;
+	int l = 0;
+	int count = 0;
+	int idx = 0, bit = 1, temp;
+	unsigned int num = va_arg(val, unsigned int);
+	unsigned int mask;
 
-	while (bits-- > 0)
+	while (idx < 32)
 	{
-		int b = (x >> bits) & 1;
-		if (b || !l)
+		mask = ((bit << (31 - idx)) & num);
+		if (mask >> (31 - idx))
+			l = 1;
+		if (l)
 		{
-			l = 0;
-			_putchar(b ? '1' : '0');
-			p++;
+			temp = mask >> (31 - idx);
+			_putchar(temp + '0');
+			count++;
 		}
+		idx++;
 	}
-	if (p == 0)
+	if (count == 0)
 	{
+		count++;
 		_putchar('0');
-		p++;
 	}
-	return (p);
+	return (count);
 }
