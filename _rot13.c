@@ -9,7 +9,7 @@
 int _rot13(va_list zab)
 {
 	int i;
-	int j;
+	int j, c;
 	char *str;
 	char ori[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 		     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
