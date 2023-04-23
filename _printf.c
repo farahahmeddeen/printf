@@ -22,7 +22,8 @@ int _printf(const char * const format, ...)
 		return (-1);
 
 Here:
-	for (i = 0; format[i] != '\0'; i++)
+	i = 0;
+	while (format[i] != '\0')
 	{
 		j = 4
 		while (j >= 0;)
@@ -37,6 +38,7 @@ Here:
 		}
 		_putchar(format[i]);
 		len++;
+		i++;
 	}
 	va_end(zab);
 	return (len);
