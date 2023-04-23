@@ -11,7 +11,7 @@ int _binary(va_list zab)
 	int l = 0;
 	int count = 0;
 	int idx = 0, bit = 1, temp;
-	unsigned int num = va_arg(val, unsigned int);
+	unsigned int num = va_arg(zab, unsigned int);
 	unsigned int mask;
 
 	while (idx < 32)
