@@ -8,18 +8,18 @@
 int _decimal(va_list zab)
 {
 	int x = va_arg(zab, int);
-	int fa, lastdigit = x % 10, num, k = 1;
+	int fa, lastdigits = x % 10, num, k = 1;
 	int len = 1;
 
 	x = x / 10;
 	fa = x;
 
-	if (lastdigit < 0)
+	if (lastdigits < 0)
 	{
 		_putchar('-');
 		fa = -fa;
 		x = -x;
-		lastdigit = -lastdigit;
+		lastdigits = -lastdigits;
 		len++;
 	}
 	if (fa > 0)
@@ -37,7 +37,7 @@ int _decimal(va_list zab)
 			len++;
 		}
 	}
-	_putchar(lastdigit + '0');
+	_putchar(lastdigits + '0');
 
 	return (len);
 }
