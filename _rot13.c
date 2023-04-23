@@ -6,42 +6,33 @@
  *
  * Return: lenght of the string
  */
-int _rot13(va_list zab)
+int printf_rot13(va_list args)
 {
-	char *str;
-	int i, c = 0;
-	char storeh[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
-	char storel[] = "nopqrstuvwxyzabcdefghijklm";
+	int i, j, counter = 0;
+	int k = 0;
+	char *s = va_arg(args, char*);
+	char alpha[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+	char beta[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
 
-	str = va_arg(zab, char *);
-	if (str == NULL)
-		str = "(null)";
-
-	for (i = 0; str[i] != '\0'; i++)
+	if (s == NULL)
+		s = "(null)";
+	for (i = 0; s[i]; i++)
 	{
-		if ((str[i] > 64 && str[i] < 91) || (str[i] > 96 && str[i] < 123))
+		k = 0;
+		for (j = 0; alpha[j] && !k; j++)
 		{
-			if (str[i] >= 'A' && str[i] <= 'Z')
+			if (s[i] == alpha[j])
 			{
-				if (str[i] - 'A' + 26 > 25)
-				{
-					str[i] = storel[str[i] - 'a'];
-					_putchar(str[i]);
-					c++;
-				}
-				else
-				{
-					str[i] = storeh[str[i] - 'A'];
-					_putchar(str[i]);
-					c++;
-				}
+				_putchar(beta[j]);
+				counter++;
+				k = 1;
 			}
 		}
-		else
+		if (!k)
 		{
-			_putchar(str[i]);
-			c++;
+			_putchar(s[i]);
+			counter++;
 		}
 	}
-	return (c);
+	return (counter);
 }
