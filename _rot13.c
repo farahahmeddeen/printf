@@ -1,6 +1,4 @@
 #include "main.h"
-void _lower(char str);
-void _capital(char str);
 /**
  * _rot13 - function to print rot13
  *
@@ -12,6 +10,8 @@ int _rot13(va_list zab)
 {
 	char *str;
 	int i, c = 0;
+	char storeh[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
+	char storel[] = "nopqrstuvwxyzabcdefghijklm";
 
 	str = va_arg(zab, char *);
 	if (str == NULL)
@@ -19,13 +19,23 @@ int _rot13(va_list zab)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if ((str[i] >= 65 && str[i] <= 90))
+		if ((str[i] > 64 && str[i] < 91) || (str[i] > 96 && str[i] < 123))
 		{
-			_capital(str[i]);
-		}
-		else if (str[i] >= 97 && str[i] <= 122)
-		{
-			_lower(str[i]);
+			if (str[i] >= 'A' && str[i] <= 'Z')
+			{
+				if (str[i] - 'A' + 26 > 25)
+				{
+					str[i] = storel[str[i] - 'a'];
+					_putchar(str[i]);
+					c++;
+				}
+				else
+				{
+					str[i] = storeh[str[i] - 'A'];
+					_putchar(str[i]);
+					c++;
+				}
+			}
 		}
 		else
 		{
@@ -35,45 +45,3 @@ int _rot13(va_list zab)
 	}
 	return (c);
 }
-/**
- * _capital - function to print upper
- * @str: string
- * Return: void
- */
-void _capital(char str)
-{
-	str[i] = str[i] + 13;
-	if (str[i] > 90)
-	{
-		str[i] = (str[i] - 90) + 65;
-		_putchar(str[i]);
-		c++;
-	}
-	else
-	{
-		_putchar(str[i]);
-		c++;
-	}
-}
-/**
- * _lower - function to print lower
- * @str: string
- * Return: void
- */
-void _lower(char str)
-{
-	str[i] = str[i] + 13;
-	if (str[i] > 97)
-	{
-		str[i] = (str[i] - 122) + 97;
-		_putchar(str[i]);
-
-		c++;
-	}
-	else
-	{
-		_putchar(str[i]);
-		c++;
-	}
-}
-
