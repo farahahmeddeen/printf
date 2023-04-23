@@ -11,8 +11,8 @@ int _rot13(va_list zab)
 	char *str;
 	int i;
 	int c = 0;
-	char ori[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
-	char rot[] = "nopqrstuvwxyzabcdefghijklm";
+	char ori[] = {"NOPQRSTUVWXYZABCDEFGHIJKLM"};
+	char rot[] = {"nopqrstuvwxyzabcdefghijklm"};
 
 	str = va_arg(zab, char *);
 	if (str == NULL)
