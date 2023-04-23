@@ -8,31 +8,39 @@
  */
 int _rot13(va_list zab)
 {
-	int i, j, counter = 0;
-	int k = 0;
-	char *s = va_arg(zab, char*);
-	char alpha[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
-	char beta[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
+	int i;
+	int j;
+	char *str;
+	char ori[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+		     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+		     'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+		     'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+		     'Z'};
+	char rotate[] = {'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+		     'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+		     'm', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+		     'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+		     'M'};
 
-	if (s == NULL)
-		s = "(null)";
-	for (i = 0; s[i]; i++)
+	str = va_arg(zab, char*);
+	if (str == NULL)
+		str = "(null)";
+
+	for (i = 0; str[i] != '\0' ; i++)
 	{
-		k = 0;
-		for (j = 0; alpha[j] && !k; j++)
+		for (j = 0 ; j < 53 ; j++)
 		{
-			if (s[i] == alpha[j])
+			if (str[i] == ori[j])
 			{
-				_putchar(beta[j]);
-				counter++;
-				k = 1;
+				_putchar(rotate[j]);
+				c++;
+			}
+			else
+			{
+				_putchar(str[i]);
+				c++;
 			}
 		}
-		if (!k)
-		{
-			_putchar(s[i]);
-			counter++;
-		}
 	}
-	return (counter);
+	return (c);
 }
