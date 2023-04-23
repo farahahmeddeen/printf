@@ -22,11 +22,11 @@ int _printf(const char * const format, ...)
 		return (-1);
 
 Here:
-	i = 0;
-	while (format[i] != '\0')
+	
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		j = 4
-		while (j >= 0;)
+		j = 4;
+		while (j >= 0)
 		{
 			if (fa[j].h[0] == format[i] && fa[j].h[1] == format[i + 1])
 			{
@@ -38,7 +38,6 @@ Here:
 		}
 		_putchar(format[i]);
 		len++;
-		i++;
 	}
 	va_end(zab);
 	return (len);
