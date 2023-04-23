@@ -12,8 +12,12 @@ int _reverse(va_list zab)
 
 	fa = va_arg(zab, char *);
 
-	for (int first = 0; fa[first] != '\0'; first++)
-		first++;
+	if (fa == NULL)
+		fa = "(null)";
+	int first = 0;
+
+	for (; fa[first] != '\0'; first++)
+		;
 	for (int second = len - 1; second >= 0; second--)
 		_putchar(fa[second]);
 	return (first);
