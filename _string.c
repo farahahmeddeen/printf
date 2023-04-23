@@ -1,61 +1,39 @@
 #include "main.h"
 
-int _strlen(char *str);
-int _strleng(const char *str);
 /**
   * _string - function that print string
-  * @args: argument parameter
+  * @zab: argument parameter
   * Return: length of string
   */
-int _string(va_list args)
+int _string(va_list zab)
 {
-	char *s;
+	char *str;
 	int i, len;
 
-	s = va_arg(args, char *);
-	if (s == NULL)
+	str = va_arg(zab, char *);
+	if (str == NULL)
 	{
-		s = "(null)";
-		len = _strlen(s);
-		for (i = 0; i < len; i++)
-			_putchar(s[i]);
+		str = "(null)";
+		for (len = 0; str[len] != '\0'; len++)
+			;
+		i = 0;
+		while (i < len)
+		{
+			_putchar(str[i]);
+			i++;
+		}
 		return (len);
 	}
 	else
 	{
-		len = _strlen(s);
-		for (i = 0; i < len; i++)
-			_putchar(s[i]);
+		for (len = 0; str[len] != '\0'; len++)
+			;
+		i = 0;
+		while (i < len)
+		{
+			_putchar(str[i]);
+			i++;
+		}
 		return (len);
 	}
-}
-
-/**
-  * _strlen - string length
-  * @str: parameter
-  * Return: string length
-  */
-int _strlen(char *str)
-{
-	int len;
-
-	for (len = 0; str[len] != '\0'; len++)
-		;
-
-	return (len);
-}
-
-/**
-  * _strleng - Entry point
-  * @str: string parameter
-  * Return: length
-  */
-int _strleng(const char *str)
-{
-	int len;
-
-	for (len = 0; str[len] != '\0'; len++)
-		;
-
-	return (len);
 }

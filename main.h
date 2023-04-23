@@ -20,10 +20,8 @@ typedef struct format
 
 int _decimal(va_list zab);
 int _int(va_list zab);
-int _strlen(char *str);
-int _strleng(const char *str);
-int _char(va_list args);
-int _string(va_list args);
+int _char(va_list zab);
+int _string(va_list zab);
 int _percent(void);
 int _printf(const char *format, ...);
 int _putchar(char c);
