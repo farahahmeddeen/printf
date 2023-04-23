@@ -9,13 +9,12 @@
 int _reverse(va_list zab)
 {
 	char *fa;
-	int len = 0;
 
 	fa = va_arg(zab, char *);
 
 	for (int first = 0; fa[first] != '\0'; first++)
-		len++;
+		first++;
 	for (int second = len - 1; second >= 0; second--)
 		_putchar(fa[second]);
-	return (len);
+	return (first);
 }
