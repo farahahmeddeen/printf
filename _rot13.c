@@ -25,7 +25,7 @@ int _rot13(va_list zab)
 			str[i] = (str[i] - 65 > 25) ?
 				ori[str[i] - 97] : rot[str[i] - 65];
 			_putchar(str[i]);
-			c++
+			c++;
 		}
 		else
 		{
