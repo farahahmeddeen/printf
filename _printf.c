@@ -1,47 +1,44 @@
 #include "main.h"
 /**
- * _printf - prints formatted output to stdout
- * @format: format string containing conversion specifiers
- * Return: number of characters printed
+ * _printf - function to print.
+ * @format: parameter
+ * Return: length of the string.
  */
-int _printf(const char *format, ...)
+int _printf(const char * const format, ...)
 {
 	conversion_array fa[] = {
-		{"%c", _char},
 		{"%s", _string},
+		{"%c", _char},
 		{"%%", _percent},
 		{"%i", _int},
 		{"%d", _decimal}
 	};
 
 	va_list zab;
-	int f, z, l = 0;
+	int i = 0, j, len = 0;
 
 	va_start(zab, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	f = 0;
-	while (format[f] != '\0')
+
+Here:
+	while (format[i] != '\0')
 	{
-		if (format[f] == '%')
+		j = 4;
+		while (j >= 0)
 		{
-			for (z = 0; z < 5; z++)
+			if (fa[j].h[0] == format[i] && fa[j].h[1] == format[i + 1])
 			{
-				if (fa[z].h[0] == format[f] && fa[z].h[1] == format[f + 1])
-				{
-					l += fa[z].func(zab);
-					f = f + 2;
-					break;
-				}
+				len += fa[j].func(zab);
+				i = i + 2;
+				goto Here;
 			}
+			j--;
 		}
-		else
-		{
-			_putchar(format[f]);
-			l++;
-			f++;
-		}
+		_putchar(format[i]);
+		len++;
+		i++;
 	}
 	va_end(zab);
-	return (l);
+	return (len);
 }
