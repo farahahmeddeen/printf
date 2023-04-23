@@ -28,19 +28,21 @@ int _rot13(va_list zab)
 
 	for (i = 0; str[i] != '\0' ; i++)
 	{
-		for (j = 0 ; j < 53 ; j++)
+		for (j = 0 ; j < 52; j++)
 		{
 			if (str[i] == ori[j])
 			{
 				_putchar(rotate[j]);
 				c++;
+				break;
 			}
-			else
+			else if (j == 51)
 			{
 				_putchar(str[i]);
 				c++;
 			}
 		}
+
 	}
 	return (c);
 }
