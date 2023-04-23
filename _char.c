@@ -6,9 +6,9 @@
  */
 int _char(va_list zab)
 {
-	char y;
+	char f;
 
-	y = va_arg(zab, int);
-	_putchar(y);
+	f = va_arg(zab, int);
+	_putchar(f);
 	return (1);
 }
