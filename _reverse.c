@@ -18,7 +18,7 @@ int _reverse(va_list zab)
 
 	for (; fa[first] != '\0'; first++)
 		;
-	for (int second = len - 1; second >= 0; second--)
+	for (int second = first - 1; second >= 0; second--)
 		_putchar(fa[second]);
 	return (first);
 }
