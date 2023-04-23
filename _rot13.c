@@ -1,4 +1,6 @@
 #include "main.h"
+void _lower(char str);
+void _capital(char str);
 /**
  * _rot13 - function to print rot13
  *
@@ -9,10 +11,7 @@
 int _rot13(va_list zab)
 {
 	char *str;
-	int i;
-	int c = 0;
-	char ori[] = {"NOPQRSTUVWXYZABCDEFGHIJKLM"};
-	char rot[] = {"nopqrstuvwxyzabcdefghijklm"};
+	int i, c = 0;
 
 	str = va_arg(zab, char *);
 	if (str == NULL)
@@ -20,12 +19,13 @@ int _rot13(va_list zab)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
+		if ((str[i] >= 65 && str[i] <= 90))
 		{
-			str[i] = (str[i] - 65 > 25) ?
-				ori[str[i] - 97] : rot[str[i] - 65];
-			_putchar(str[i]);
-			c++;
+			_capital(str[i]);
+		}
+		else if (str[i] >= 97 && str[i] <= 122)
+		{
+			_lower(str[i]);
 		}
 		else
 		{
@@ -35,3 +35,45 @@ int _rot13(va_list zab)
 	}
 	return (c);
 }
+/**
+ * _capital - function to print upper
+ * @str: string
+ * Return: void
+ */
+void _capital(char str)
+{
+	str[i] = str[i] + 13;
+	if (str[i] > 90)
+	{
+		str[i] = (str[i] - 90) + 65;
+		_putchar(str[i]);
+		c++;
+	}
+	else
+	{
+		_putchar(str[i]);
+		c++;
+	}
+}
+/**
+ * _lower - function to print lower
+ * @str: string
+ * Return: void
+ */
+void _lower(char str)
+{
+	str[i] = str[i] + 13;
+	if (str[i] > 97)
+	{
+		str[i] = (str[i] - 122) + 97;
+		_putchar(str[i]);
+
+		c++;
+	}
+	else
+	{
+		_putchar(str[i]);
+		c++;
+	}
+}
+
