@@ -15,15 +15,14 @@ int _printf(const char * const format, ...)
 	};
 
 	va_list zab;
-	int i, j, len = 0;
+	int i = 0, j, len = 0;
 
 	va_start(zab, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
 Here:
-	
-	for (i = 0; format[i] != '\0'; i++)
+	while (format[i] != '\0')
 	{
 		j = 4;
 		while (j >= 0)
@@ -38,6 +37,7 @@ Here:
 		}
 		_putchar(format[i]);
 		len++;
+		i++;
 	}
 	va_end(zab);
 	return (len);
