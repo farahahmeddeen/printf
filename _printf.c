@@ -24,7 +24,8 @@ int _printf(const char * const format, ...)
 Here:
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		for (j = 4; j >= 0; j--)
+		j = 4
+		while (j >= 0;)
 		{
 			if (fa[j].h[0] == format[i] && fa[j].h[1] == format[i + 1])
 			{
@@ -32,6 +33,7 @@ Here:
 				i = i + 2;
 				goto Here;
 			}
+			j--;
 		}
 		_putchar(format[i]);
 		len++;
