@@ -27,5 +27,6 @@ int _percent(void);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int _binary(va_list zab);
+int _reverse(va_list zab);
 
 #endif
