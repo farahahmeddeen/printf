@@ -26,7 +26,7 @@ int _rot13(va_list zab)
 
 	for (i = 0; str[i] != '\0' ; i++)
 	{
-		for (j = 0 ; j < 52; j++)
+		for (j = 0 ; j < 53; j++)
 		{
 			if (str[i] == ori[j])
 			{
