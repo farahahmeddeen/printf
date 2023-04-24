@@ -34,7 +34,6 @@ int _rot13(va_list zab)
 			{
 				_putchar(rotate[j]);
 				c++;
-				break;
 			}
 			else if (j == 52)
 			{
