@@ -1,9 +1,7 @@
 #include "main.h"
-
 /**
  * _rot13 - function to print
  * @zab: argument
- *
  * Return: lenght of the string
  */
 int _rot13(va_list zab)
@@ -34,8 +32,9 @@ int _rot13(va_list zab)
 			{
 				_putchar(rotate[j]);
 				c++;
+				break;
 			}
-			else if (j == 52)
+			else if (j == 51)
 			{
 				_putchar(str[i]);
 				c++;
