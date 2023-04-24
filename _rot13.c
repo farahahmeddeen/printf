@@ -36,7 +36,7 @@ int _rot13(va_list zab)
 				c++;
 				break;
 			}
-			else if (j == 51)
+			else if (j == 52)
 			{
 				_putchar(str[i]);
 				c++;
