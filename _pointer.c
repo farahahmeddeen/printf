@@ -38,7 +38,7 @@ int _count(unsigned long int num)
 	long int len = 0, index;
 	char hex_digits[] = "0123456789abcdef";
 	char digit;
-	char str[11];
+	char str = "";
 
 	while (num != 0)
 	{
@@ -54,5 +54,5 @@ int _count(unsigned long int num)
 		index--;
 	}
 
-	return (len + 1);
+	return (len);
 }
