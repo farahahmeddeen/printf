@@ -17,9 +17,11 @@ int _pointer(va_list zab)
 	ptr = va_arg(zab, void*);
 	if (ptr == NULL)
 	{
-		for (i = 0; str[i] != '\0'; i++)
+		i = 0;
+		while (str[i] != '\0')
 		{
 			_putchar(str[i]);
+			i++;
 		}
 		return (i);
 	}
