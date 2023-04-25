@@ -7,15 +7,13 @@
 int _printf(const char * const format, ...)
 {
 	conversion_array fa[] = {
-		{"%s", _string},
-		{"%c", _char},
-		{"%%", _percent},
-		{"%i", _int},
-		{"%d", _decimal},
-		{"%b", _binary},
-		{"%R", _rot13},
-		{"%r", _reverse},
-		{"%p", _pointer}
+		{"%s", _string}, {"%c", _char},
+		{"%%", _percent}, {"%i", _int},
+		{"%d", _decimal}, {"%b", _binary},
+		{"%R", _rot13}, {"%r", _reverse},
+		{"%p", _pointer}, {"%u", _unsigned},
+		{"%o", _octal}, {"%x", _hexad},
+		{"%X", _hexaD}
 	};
 
 	va_list zab;
@@ -28,7 +26,7 @@ int _printf(const char * const format, ...)
 Here:
 	while (format[i] != '\0')
 	{
-		j = 8;
+		j = 12;
 		while (j >= 0)
 		{
 			if (fa[j].h[0] == format[i] && fa[j].h[1] == format[i + 1])

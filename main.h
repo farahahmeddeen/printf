@@ -18,6 +18,10 @@ typedef struct format
 	int (*func)();
 } conversion_array;
 
+int _hexaD(va_list zab);
+int _hexad(va_list zab);
+int _octal(va_list zab);
+int _unsigned(va_list zab);
 int _pointer(va_list zab);
 int _rot13(va_list zab);
 int _decimal(va_list zab);
