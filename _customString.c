@@ -18,7 +18,7 @@ int _customString(va_list zab)
 
 	fa = 0;
 	count = 0;
-	while (str[fa] != '\0')
+	for (fa = 0; str[fa] != '\0'; fa++)
 	{
 		if (str[fa] > 31 || str[fa] <= 126)
 		{
@@ -29,16 +29,15 @@ int _customString(va_list zab)
 		{
 			_putchar('\\');
 			_putchar('x');
-			count += 2;
+			count = count + 2;
 			num = str[fa];
 			if (num < 16)
 			{
 				_putchar('0');
 				count++;
 			}
-			count += _hexadecimal(num);
+			count = count + _hexadecimal(num);
 		}
-		fa++;
 	}
 
 	return (count);
