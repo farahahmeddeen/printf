@@ -52,32 +52,29 @@ int _octal(va_list zab)
 {
 	int i;
 	int *str;
-	int size = 0;
+	int count = 0;
 	unsigned int num = va_arg(zab, unsigned int);
 	unsigned int temp = num;
 
-	while (num != 0)
+	while (num / 8 != 0)
 	{
 		num /= 8;
-		size++;
+		count++;
 	}
+	count++;
+	str = malloc(count * sizeof(int));
 
-	str = malloc(size * sizeof(int));
-
-	for (i = 0; i < size; i++)
+	for (i = 0; i < count; i++)
 	{
 		str[i] = temp % 8;
 		temp /= 8;
 	}
-
-	i = size - 1;
-	while (i >= 0)
+	for (i = count - 1; i >= 0; i--)
 	{
 		_putchar(str[i] + '0');
-		i--;
 	}
 	free(str);
-	return (size);
+	return (count);
 }
 
 /**
@@ -88,29 +85,38 @@ int _octal(va_list zab)
   */
 int _hexad(va_list zab)
 {
-	int len = 0, index;
-	unsigned int num;
+	int *str;
+	int size = 0, index = 0;
 	char hex_digits[] = "0123456789abcdef";
 	char digit;
-	char str[15];
+	unsigned int num = va_arg(zab, unsigned int);
+	unsigned int new = num;
 
-	num = va_arg(zab, unsigned int);
-	while (num != 0)
+	while (num / 16 != 0)
 	{
-		digit = hex_digits[num % 16];
-		str[len] = digit;
 		num /= 16;
-		len++;
+		size++;
 	}
-	index = len - 1;
+	size++;
+	str = malloc(size * sizeof(int));
+
+	while (index < size)
+	{
+		digit = hex_digits[new % 16];
+		str[index] = digit;
+		new /= 16;
+		index++;
+	}
+	index = index - 1;
 	while (index >= 0)
 	{
 		_putchar(str[index]);
 		index--;
 	}
-	return (len);
-}
+	free(str);
 
+	return (size);
+}
 /**
   * _hexaD - hexadecimal format using lowercase letters for the digits
   * @zab: argument parameter
@@ -119,25 +125,35 @@ int _hexad(va_list zab)
   */
 int _hexaD(va_list zab)
 {
-	int len = 0, index;
-	unsigned int num;
+	int *str;
+	int size = 0, index = 0;
 	char hex_digits[] = "0123456789ABCDEF";
 	char digit;
-	char str[15];
+	unsigned int num = va_arg(zab, unsigned int);
+	unsigned int new = num;
 
-	num = va_arg(zab, unsigned int);
-	while (num != 0)
+	while (num / 16 != 0)
 	{
-		digit = hex_digits[num % 16];
-		str[len] = digit;
 		num /= 16;
-		len++;
+		size++;
 	}
-	index = len - 1;
+	size++;
+	str = malloc(size * sizeof(int));
+
+	while (index < size)
+	{
+		digit = hex_digits[new % 16];
+		str[index] = digit;
+		new /= 16;
+		index++;
+	}
+	index = index - 1;
 	while (index >= 0)
 	{
 		_putchar(str[index]);
 		index--;
 	}
-	return (len);
+	free(str);
+
+	return (size);
 }
