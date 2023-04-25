@@ -74,7 +74,7 @@ int _octal(va_list zab)
 	index = len - 1;
 	while (index >= 0)
 	{
-		_putchar(str[index]);
+		_putchar(str[index] + '0');
 		index--;
 	}
 	free(str);
