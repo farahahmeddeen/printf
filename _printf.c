@@ -13,7 +13,7 @@ int _printf(const char * const format, ...)
 		{"%R", _rot13}, {"%r", _reverse},
 		{"%p", _pointer}, {"%u", _unsigned},
 		{"%o", _octal}, {"%x", _hexad},
-		{"%X", _hexaD}
+		{"%X", _hexaD}, {"%S", _customString}
 	};
 
 	va_list zab;
@@ -26,7 +26,7 @@ int _printf(const char * const format, ...)
 Here:
 	while (format[i] != '\0')
 	{
-		j = 12;
+		j = 13;
 		while (j >= 0)
 		{
 			if (fa[j].h[0] == format[i] && fa[j].h[1] == format[i + 1])

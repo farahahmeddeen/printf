@@ -18,6 +18,7 @@ typedef struct format
 	int (*func)();
 } conversion_array;
 
+int _customString(va_list zab);
 int _hexaD(va_list zab);
 int _hexad(va_list zab);
 int _octal(va_list zab);
