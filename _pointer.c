@@ -35,10 +35,19 @@ int _pointer(va_list zab)
   */
 int _count(unsigned long int num)
 {
-	long int len = 0, index;
+	long int len = 0, index, size = 0;
 	char hex_digits[] = "0123456789abcdef";
 	char digit;
-	char str = "";
+	char *str;
+	unsigned long int za = num;
+
+	while (za / 16 != 0)
+	{
+		za = za / 16;
+		size++;
+	}
+	size++;
+	str = malloc(size * sizeof(long int));
 
 	while (num != 0)
 	{
@@ -54,5 +63,6 @@ int _count(unsigned long int num)
 		index--;
 	}
 
+	free(str);
 	return (len);
 }
