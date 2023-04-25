@@ -11,7 +11,7 @@ int _pointer(va_list zab)
 {
 	void *ptr;
 	long int len;
-	int count;
+	long int count;
 
 	ptr = va_arg(zab, void *);
 	if (ptr == NULL)
@@ -54,5 +54,5 @@ int _count(unsigned long int num)
 		index--;
 	}
 
-	return (len);
+	return (len + 1);
 }
