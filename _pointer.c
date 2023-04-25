@@ -10,7 +10,7 @@ int _count(unsigned long int number);
 int _pointer(va_list zab)
 {
 	void *ptr;
-	int len;
+	long int len;
 	int count;
 
 	ptr = va_arg(zab, void *);
@@ -35,10 +35,10 @@ int _pointer(va_list zab)
   */
 int _count(unsigned long int num)
 {
-	int len = 0, i, index;
+	long int len = 0, index;
 	char hex_digits[] = "0123456789abcdef";
 	char digit;
-	char str[15];
+	char str[11];
 
 	while (num != 0)
 	{
@@ -47,9 +47,7 @@ int _count(unsigned long int num)
 		num /= 16;
 		len++;
 	}
-	for (i = 0; str[i] != '\0'; i++)
-		;
-	index = i - 1;
+	index = len - 1;
 	while (index >= 0)
 	{
 		_putchar(str[index]);
