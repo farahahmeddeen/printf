@@ -50,27 +50,31 @@ int _unsigned(va_list zab)
   */
 int _octal(va_list zab)
 {
-	int len = 0, index;
-	unsigned int num;
-	char hex_digits[] = "0123456789abcdef";
-	char digit;
-	char str[15];
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(zab, unsigned int);
+	unsigned int temp = num;
 
-	num = va_arg(zab, unsigned int);
-	while (num != 0)
+	while (num / 8 != 0)
 	{
-		digit = hex_digits[num % 8];
-		str[len] = digit;
 		num /= 8;
-		len++;
+		counter++;
 	}
-	index = len - 1;
-	while (index >= 0)
+	counter++;
+	array = malloc(counter * sizeof(int));
+
+	for (i = 0; i < counter; i++)
 	{
-		_putchar(str[index]);
-		index--;
+		array[i] = temp % 8;
+		temp /= 8;
 	}
-	return (len);
+	for (i = counter - 1; i >= 0; i--)
+	{
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }
 
 /**
