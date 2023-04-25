@@ -51,30 +51,33 @@ int _unsigned(va_list zab)
 int _octal(va_list zab)
 {
 	int i;
-	int *array;
-	int counter = 0;
+	int *str;
+	int size = 0;
 	unsigned int num = va_arg(zab, unsigned int);
 	unsigned int temp = num;
 
-	while (num / 8 != 0)
+	while (num != 0)
 	{
 		num /= 8;
-		counter++;
+		size++;
 	}
-	counter++;
-	array = malloc(counter * sizeof(int));
 
-	for (i = 0; i < counter; i++)
+	str = malloc(size * sizeof(int));
+
+	for (i = 0; i < size; i++)
 	{
-		array[i] = temp % 8;
+		str[i] = temp % 8;
 		temp /= 8;
 	}
-	for (i = counter - 1; i >= 0; i--)
+
+	i = size - 1;
+	while (i >= 0)
 	{
-		_putchar(array[i] + '0');
+		_putchar(str[i] + '0');
+		i--;
 	}
-	free(array);
-	return (counter);
+	free(str);
+	return (size);
 }
 
 /**
