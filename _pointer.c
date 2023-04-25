@@ -9,22 +9,27 @@ int _count(unsigned long int number);
   */
 int _pointer(va_list zab)
 {
-	void *ptr;
-	long int len;
-	long int count;
+	void *p;
+	char *s = "(nil)";
+	long int a;
+	int b;
+	int i;
 
-	ptr = va_arg(zab, void *);
-	if (ptr == NULL)
+	p = va_arg(zab, void*);
+	if (p == NULL)
 	{
-		for (len = 0; len != '\0'; len++)
-			;
-		_printf("(nil)");
-		return (len);
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			_putchar(s[i]);
+		}
+		return (i);
 	}
-	_printf("0x");
-	count = _count((unsigned long int)ptr);
 
-	return (count + 2);
+	a = (unsigned long int)p;
+	_putchar('0');
+	_putchar('x');
+	b = printf_hex_aux(a);
+	return (b + 2);
 }
 
 /**
