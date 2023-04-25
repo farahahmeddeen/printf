@@ -10,36 +10,36 @@ int _hexadecimal(unsigned int num);
 int _customString(va_list zab)
 {
 	char *str;
-	int fa, num, count;
+	int fa, count = 0;
+	int num;
 
-	str = va_arg(zab, char*);
+	str = va_arg(zab, char *);
 	if (str == NULL)
 		str = "(null)";
 
 	fa = 0;
-	count = 0;
-	for (fa = 0; str[fa] != '\0'; fa++)
+	while (str[fa] != '\0')
 	{
-		if (str[fa] > 31 || str[fa] <= 126)
-		{
-			_putchar(str[fa]);
-			count++;
-		}
-		else
+		if (str[fa] <= 31 || str[fa] > 126)
 		{
 			_putchar('\\');
 			_putchar('x');
-			count = count + 2;
+			count += 2;
 			num = str[fa];
 			if (num < 16)
 			{
 				_putchar('0');
 				count++;
 			}
-			count = count + _hexadecimal(num);
+			count += _hexadecimal(num);
 		}
+		else
+		{
+			_putchar(str[fa]);
+			count++;
+		}
+		fa++;
 	}
-
 	return (count);
 }
 
