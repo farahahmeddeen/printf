@@ -64,5 +64,5 @@ int _count(unsigned long int num)
 	}
 
 	free(str);
-	return (len);
+	return (size);
 }
