@@ -14,7 +14,8 @@ int _printf(const char * const format, ...)
 		{"%d", _decimal},
 		{"%b", _binary},
 		{"%R", _rot13},
-		{"%r", _reverse}
+		{"%r", _reverse},
+		{"%p", _pointer}
 	};
 
 	va_list zab;
@@ -27,7 +28,7 @@ int _printf(const char * const format, ...)
 Here:
 	while (format[i] != '\0')
 	{
-		j = 7;
+		j = 8;
 		while (j >= 0)
 		{
 			if (fa[j].h[0] == format[i] && fa[j].h[1] == format[i + 1])

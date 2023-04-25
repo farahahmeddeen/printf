@@ -18,6 +18,7 @@ typedef struct format
 	int (*func)();
 } conversion_array;
 
+int _pointer(va_list zab);
 int _rot13(va_list zab);
 int _decimal(va_list zab);
 int _int(va_list zab);
