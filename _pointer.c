@@ -28,7 +28,7 @@ int _pointer(va_list zab)
 	a = (unsigned long int)p;
 	_putchar('0');
 	_putchar('x');
-	b = printf_hex_aux(a);
+	b = _count(a);
 	return (b + 2);
 }
 
