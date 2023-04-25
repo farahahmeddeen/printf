@@ -10,7 +10,7 @@ int _hexadecimal(unsigned int num);
 int _customString(va_list zab)
 {
 	char *str;
-	int fa, new, count;
+	int fa, num, count;
 
 	str = va_arg(zab, char*);
 	if (str == NULL)
